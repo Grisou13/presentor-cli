@@ -5,31 +5,62 @@ class: black
 count: false
 class: center, middle
 
-# Nom de code: NWP
+# Nom de code: JOM
 
-## eBill
+## Journée oser les métiers
 
 ---
 
 # Agenda
 
---
+8h30-9h 		Arrivée 
 
-- eBill comment diable est-ce que ça marche
+9h-10h 			Présentation générale / Mise en place 
 
---
-    - Une histoire, une histoire, une histoire
---
-    - Le projet NWP ( NetWork Partner eBill )
---
-    - Où en est on du projet
---
-- Techniquement à quoi ressemble l'envoi d'une facture eBill
+10h-10h15		Pause 
+
+10h15-12h15	Début en programmation 
+
+12h15 – 13h30	Repas 
+
+13h30-16h00	La programmation dans le monde réel
+
+16h-16h30		Fin de journée / Bilan 
+
+???
+
+# Trois activité:
+
+- montage pc
+- programmation
+- robot
+- circuit logique billes
 
 ---
 
-[include './1_ebill.md']
+[include './me.md']
+
+---
+class: center, middle
+
+# Et vous? Qui êtes vous?    
+
+
+
+???
+
+- Travail dans la journée voulue?
+- Cours detesté?
+- Qu'est ce qu'il aime?
+- Attente?
+- Etude?
+- niveau d'anglais
+- Ou est-ce que vous voulez manger
 
 ---
 
-[include './2_technique.md']
+[include './1_premier_programme.md']
+
+---
+
+[include './2_lego.md']

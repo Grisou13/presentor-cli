@@ -29,3 +29,9 @@ decktape remark "http://localhost:3000/presentation/0_summary.md" 0_summary.pdf 
 # TODO
 
 * [ ] Make it a standalone node package so everyone can just `npm i -g @tr/presentor-cli`
+- cli will have the following interface
+
+```
+presentor ....
+[path] -> runs the presentation in path
+download --format=default=pdf|pdf|html| [output path | stdout]

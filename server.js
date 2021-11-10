@@ -2,11 +2,11 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const { setFlagsFromString } = require("v8");
-
+const mime = require('mime-types')
 const app = express();
 
-var cwd = path.resolve("./");
-var slideDirectory = "slides";
+const cwd = path.resolve("./");
+const slideDirectory = "slides";
 const maxIncludeDepth = 50;
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use("/images", express.static(path.join(cwd, slideDirectory)));
@@ -53,8 +53,34 @@ const includeMarkdown = (rawHtml, depth = 0) => {
   return includeMarkdown(newHtml, ++depth);
 }
 
+const includeImages = (rawHtml) => {
+  let newHtml = rawHtml.toString();
+  let regex = /\[img \'(.*)\'\]/;
+  while ((m = regex.exec(newHtml)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+    // The result can be accessed through the `m`-variable.
+    const rawStr = m[0];
+    const fileName = m[1];
+    const bitmap = fs.readFileSync(path.join(cwd, slideDirectory, fileName))
+    const bs4Data  = bitmap.toString('base64');
+
+    const mediaType = mime.lookup(fileName);
+    if(mediaType){
+      newHtml = newHtml.replace(
+        rawStr,
+        `<image src="data:${mediaType};base64,${bs4Data}" />`
+      );  
+    }
+    
+  }
+  return newHtml;
+}
+
 app.locals.parseMarkDown = function (rawHtml) {
-  return includeMarkdown(rawHtml);
+  return includeImages(includeMarkdown(rawHtml));
 };
 
 const homePage = function (req, res) {
