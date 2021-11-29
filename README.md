@@ -23,7 +23,7 @@ node server.js -- --slidePath=./slides
 
 ```
 npm i -g decktape
-decktape remark "http://localhost:3000/presentation/0_summary.md" 0_summary.pdf --chrome-arg=--disable-web-security --size 320x240`
+decktape remark "http://localhost:3000/presentation/0_summary.md" 0_summary.pdf --chrome-arg=--disable-web-security --size 320x240
 ```
 
 # TODO
