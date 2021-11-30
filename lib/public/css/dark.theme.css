@@ -1,0 +1,8 @@
+.remark-container{
+    background: #0e0e0e !important;
+}
+.remark-slide-scaler{
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
