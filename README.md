@@ -2,21 +2,14 @@
 
 The ultimate HTML/CSS presentor with markdown done as a tool for everyone! :D
 
-# Folders
-
-- src -> source for presentor tool
-- slides -> slides directory
--     0_welcome
--     1_summary
-
-
 # Running the presentor
 
 To run the project
 
 ```bash
+git clone https://github.com/Grisou13/presentor-cli
 npm install
-node server.js -- --slidePath=./slides
+node bin/cli.js --slidePath=./slides
 ```
 
 # Export slides to pdfpdf
@@ -28,10 +21,5 @@ decktape remark "http://localhost:3000/presentation/0_summary.md" 0_summary.pdf 
 
 # TODO
 
-* [ ] Make it a standalone node package so everyone can just `npm i -g @tr/presentor-cli`
-- cli will have the following interface
+* [ ] cli for downloading download --format=default=pdf|pdf|html| [output path | stdout]
 
-```
-presentor ....
-[path] -> runs the presentation in path
-download --format=default=pdf|pdf|html| [output path | stdout]
